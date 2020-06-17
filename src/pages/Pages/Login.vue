@@ -69,6 +69,7 @@
 
 import { extend } from "vee-validate";
 import { required, email, min } from "vee-validate/dist/rules";
+import { mapState, mapActions } from 'vuex'
 
 extend("email", email);
 extend("min", min);
@@ -80,12 +81,30 @@ export default {
     return {
       email: "",
       password: "",
-      subscribe: true
+      subscribe: true,
     };
   },
+  computed: {
+        ...mapState('account', ['status'])
+  },
+  created() {
+        // reset login status
+        this.logout();
+    },
   methods: {
+    ...mapActions('account', ['login', 'logout']),
+
     submit() {
-      alert("Form has been submitted!");
+      //alert("Form has been submitted!");
+      /*
+        should implement api - authenticate here
+      */
+      this.submitted = true;
+      var username = email;
+      const { email, password } = this;
+      if (username && password) {
+        this.login({ username, password })
+      }
     }
   }
 };

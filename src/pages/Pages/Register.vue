@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-5 ml-auto">
+      <!--div class="col-md-5 ml-auto">
         <div class="info-area info-horizontal mt-5">
           <div class="icon icon-warning">
             <i class="tim-icons icon-wifi"></i>
@@ -38,9 +38,10 @@
             </p>
           </div>
         </div>
-      </div>
+      </div-->
 
-      <div class="col-md-7 mr-auto">
+      <!--div class="col-md-7 mr-auto"-->
+      <div class="col-lg-6 col-md-8 ml-auto mr-auto">
         <ValidationObserver v-slot="{ handleSubmit }">
           <form @submit.prevent="handleSubmit(submit)">
             <card class="card-register card-white">
