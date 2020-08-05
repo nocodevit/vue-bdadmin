@@ -16,6 +16,32 @@
           }"
         >
         </sidebar-item>
+
+        <sidebar-item
+          :link="{
+            name: $t('pipes'),
+            icon: 'tim-icons icon-atom',
+            path: '/dashboard'
+          }"
+        >
+        </sidebar-item>
+        <sidebar-item
+          :link="{
+            name: $t('products'),
+            icon: 'tim-icons icon-app',
+            path: '/dashboard'
+          }"
+        >
+        </sidebar-item>
+        <sidebar-item
+          :link="{
+            name: $t('resources'),
+            icon: 'tim-icons icon-planet',
+            path: '/dashboard'
+          }"
+        >
+        </sidebar-item>
+        <!--
         <sidebar-item
           :link="{ name: $t('sidebar.pages'), icon: 'tim-icons icon-image-02' }"
         >
@@ -176,6 +202,8 @@
             path: '/calendar'
           }"
         ></sidebar-item>
+        -->
+        
       </template>
     </side-bar>
     <!--Share plugin (for demo purposes). You can remove it if don't plan on using it-->

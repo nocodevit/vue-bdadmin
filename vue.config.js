@@ -7,6 +7,9 @@ function resolveSrc(_path) {
 // vue.config.js
 module.exports = {
   lintOnSave: true,
+  publicPath: process.env.NODE_ENV === 'production' 
+    ? '/' 
+    : '/',
   configureWebpack: {
     // Set up all the aliases we use in our app.
     resolve: {
@@ -23,7 +26,7 @@ module.exports = {
 
   },
   pwa: {
-    name: 'Vue Black Dashboard PRO',
+    name: 'Pluto Manager',
     themeColor: '#344675',
     msTileColor: '#344675',
     appleMobileWebAppCapable: 'yes',
@@ -40,6 +43,9 @@ module.exports = {
   css: {
     // Enable CSS source maps.
     sourceMap: process.env.NODE_ENV !== 'production'
+  },
+  devServer: {
+    https:true
   },
 
 };

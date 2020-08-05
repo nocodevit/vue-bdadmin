@@ -1,11 +1,25 @@
 <template>
   <div class="container">
-    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+    <div class="col-lg-4 col-md-4 ml-auto mr-auto">
+      <card style="width: 30rem;">
+        <img slot="image" class="card-img-top" src="img/login-people4.png" alt="login"/>
+        <h4 class="card-title"></h4>
+        <br />
+        <p class="card-text">Project Pluto by Links Field is connecting to microsoft 365 to obtain data and service, please login first.</p>       
+        <div class="text-center">
+        <br/>
+        <br/>
+        <base-button class="animation-on-hover" type="primary" v-on:click="logIn">
+          <i class="tim-icons icon-components"> </i>  Sign in with Microsoft 
+        </base-button>
+        </div>
+      </card>
+      <!--
       <ValidationObserver v-slot="{ handleSubmit }">
         <form @submit.prevent="handleSubmit(submit)">
           <card class="card-login card-white">
             <template slot="header">
-              <!--img src="img/card-primary.png" alt="" /-->
+              <img src="img/card-primary.png" alt="" >
               <h5 class="card-title">Log in</h5>
             </template>
 
@@ -62,6 +76,7 @@
           </card>
         </form>
       </ValidationObserver>
+      -->
     </div>
   </div>
 </template>
@@ -69,13 +84,14 @@
 
 import { extend } from "vee-validate";
 import { required, email, min } from "vee-validate/dist/rules";
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex';
+import { msUser} from "../../auth/authPopup";
 
+/*
 extend("email", email);
 extend("min", min);
-
 extend("required", required);
-
+*/
 export default {
   data() {
     return {
@@ -99,12 +115,20 @@ export default {
       /*
         should implement api - authenticate here
       */
+      /* comment for microsoft-login
       this.submitted = true;
       var username = email;
       const { email, password } = this;
       if (username && password) {
         this.login({ username, password })
       }
+      */
+      //microsoft login
+      
+    },
+    logIn(){
+      console.log("trying to login");
+      msUser.signIn();
     }
   }
 };
