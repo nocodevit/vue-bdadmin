@@ -21,7 +21,7 @@ let site_info="";
 let myMSALObjJson = "";
 
   function isUserSignedIn(){
-      return myMSALObj.account!==null;
+      return myMSALObj.getAllAccounts()>=1;
     //return updateLoggedInStatus(myMSALObj.getAccount());
   }
   
@@ -31,9 +31,8 @@ let myMSALObjJson = "";
         console.log("id_token acquired at: " + new Date().toString());
         console.log(loginResponse);
         myMSALObjJson = JSON.parse(JSON.stringify(myMSALObj));
-        //console.log("myMSALObj is : " + JSON.stringify(myMSALObj));
-        console.log("myMSALObj2 account is : " + JSON.stringify(myMSALObjJson));
-        console.log("myMSALObj get account is : "+ myMSALObj.account);
+        //console.log("myMSALObj2 account is : " + JSON.stringify(myMSALObjJson)); //can get the string of the object json
+        console.log("myMSALObj get account is : "+ myMSALObj.getAccount());
         if (myMSALObj.account) {
             $store.msAccount.dispatch('login',myMSALObj.account);
           //showWelcomeMessage(myMSALObj.getAccount());

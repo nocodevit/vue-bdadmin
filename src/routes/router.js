@@ -20,15 +20,18 @@ router.beforeEach((to, from, next)=> {
   const publicPages = ['/login', '/register'];
   const authRequired = !publicPages.includes(to.path);
   console.log("topath="+to.path);
+  console.log("frompat="+from.path);
+  console.log("nextpath="+next.path);
   //const loggedIn = localStorage.getItem('masluser');
   console.log("msAccount store is : "+ JSON.stringify(store.getters['msAccount/isUserValid']));
   const loggedIn = store.getters['msAccount/isUserValid'];
   console.log("is Auth required? =" + authRequired);
   console.log("is Logged In? =" + loggedIn);
+  
 
-  //  if (authRequired && !loggedIn) {
-  //    return next('/login');
-  //  }
+   if (authRequired && !loggedIn) {
+     //return next('/login');
+   }
 
   next();
 
