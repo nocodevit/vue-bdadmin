@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.86281bddf7c7e564769bf3591cd21688.js"
+  "/precache-manifest.769fa4a5dd2aea871ea3011674945800.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pluto-manager"});
